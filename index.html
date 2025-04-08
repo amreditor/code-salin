@@ -34,7 +34,59 @@
                     repellendus sequi sit repellat? Aspernatur eius reiciendis minima rerum consectetur esse,
                     asperiores, illo vero aliquam sit quae delectus! Amet ut quam odio aut quae beatae quia.</p>
             </article>
-            
+            <article class="rounded shadow-xl p-10 my-5">
+                <h2 class="text-lg font-bold text-center m-5">tutorial fix vs code di linux</h2>
+                <pre>
+The error message you're encountering in Visual Studio Code indicates that the application is unable 
+to write user data due to permission issues. 
+Here are some steps you can take to resolve this:
+
+Steps to Fix Permission Denied Error
+
+1. **Check Directory Permissions:**
+   - Open a terminal and check the permissions of the directories mentioned in the error message:
+     ```bash
+     ls -ld ~/.config/Code
+     ls -ld ~/.vscode/extensions
+     ls -ld /run/user/1000
+     ```
+   - Ensure that your user has write permissions for these directories.
+
+2. **Change Ownership:**
+   If you find that the ownership of these directories is incorrect, you can change it using:
+   ```bash
+   sudo chown -R $(whoami):$(whoami) ~/.config/Code
+   sudo chown -R $(whoami):$(whoami) ~/.vscode/extensions
+   ```
+
+3. **Modify Permissions:**
+   If necessary, modify the permissions to ensure your user can write:
+   ```bash
+   chmod u+w ~/.config/Code
+   chmod u+w ~/.vscode/extensions
+   ```
+
+4. **Run VS Code as Administrator (if applicable):**
+    On some systems, running Visual Studio Code with elevated privileges may help:
+    ```bash
+    sudo code --user-data-dir="~/.vscode"
+    ```
+
+5. **Reinstall Visual Studio Code:**
+    If none of the above solutions work, consider reinstalling Visual Studio Code.
+
+6. **Check Disk Space:**
+    Ensure there’s enough disk space available on your system as low disk space can also cause similar issues.
+
+### Additional Tips
+
+- After making changes, restart Visual Studio Code.
+- Check if any extensions might be causing conflicts by disabling them temporarily.
+
+If you continue experiencing issues after trying these steps, please provide more details about 
+your operating system and setup for further assistance!
+                </pre>
+            </article>
 
         </div>
     </main>
