@@ -139,6 +139,49 @@ The error messages you're seeing in VirtualBox indicate that there are permissio
 If you continue experiencing issues after trying these steps, please provide more details about your operating system and setup for further assistance!
                 </pre>
             </article>
+            <article>
+                <pre>
+                    Untuk memperbaiki ikon kursor di Debian 8 (Jessie) 64-bit, Anda dapat mengikuti langkah-langkah berikut:
+
+### 1. **Periksa Pengaturan Kursor**
+   - Buka terminal dan periksa apakah tema kursor yang digunakan sudah terpasang dengan benar.
+   - Anda bisa melihat tema yang sedang aktif dengan menjalankan:
+     ```bash
+     ls ~/.icons/default/
+     ```
+
+### 2. **Ganti Tema Kursor**
+   Jika tema saat ini bermasalah, Anda bisa menggantinya:
+   - Install tema kursor baru. Misalnya, untuk menginstal tema Adwaita:
+     ```bash
+     sudo apt-get install adwaita-icon-theme
+     ```
+   - Setelah itu, buat atau edit file `~/.icons/default/index.theme`:
+     ```bash
+     mkdir -p ~/.icons/default
+     echo "[Icon Theme]" > ~/.icons/default/index.theme
+     echo "Inherits=Adwaita" >> ~/.icons/default/index.theme
+     ```
+
+### 3. **Reset Konfigurasi Kursor**
+   Jika ada masalah dengan konfigurasi saat ini, hapus file konfigurasi lama dan buat yang baru seperti di atas.
+
+### 4. **Perbarui Cache Ikon**
+    Setelah mengganti atau mengatur ulang tema, perbarui cache ikon dengan menjalankan:
+    ```bash
+    sudo update-icon-caches /usr/share/icons/*
+    ```
+
+### 5. **Restart X Server atau Reboot**
+    Untuk menerapkan perubahan secara penuh, restart X server atau reboot sistem Anda.
+
+### 6. **Cek File Konfigurasi Tambahan**
+Jika masalah masih berlanjut, periksa file konfigurasi lain seperti `~/.Xresources` atau `~/.xprofile`. Pastikan tidak ada pengaturan yang salah terkait kursor.
+
+Dengan mengikuti langkah-langkah di atas seharusnya ikon kursor di Debian 8 dapat diperbaiki. Jika masih mengalami kesulitan setelah mencoba semua 
+                    cara tersebut, silakan beri tahu lebih lanjut tentang gejala spesifik dari masalah tersebut!
+                </pre>
+            </article>
         </div>
     </main>
 
